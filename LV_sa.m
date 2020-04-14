@@ -23,9 +23,9 @@ for klok=1:klokmax % sets loop time from 1 to maximum time steps
   Psa_plot(klok)=Psa; % places Psa value into timestep placeholder
   VLV_plot(klok)=CLV*PLV+VLVd; % places VLV value into timestep placeholder
   Vsa_plot(klok)=Csa*Psa+Vsad; % places Vsa value into timestep placeholder
-  QMi_plot(klok)=SMi*(PLA-PLV)/RMi; % places QMi value into timestep placeholder
-  QAo_plot(klok)=SAo*(PLV-Psa)/RAo;  % places QAo value into timestep placeholder
-  Qs_plot(klok)=Psa/Rs; % places Qs value into timestep placeholder
+  QMi_plot(klok)= (SMi*(PLA-PLV)/RMi)*1; % places QMi value into timestep placeholder
+  QAo_plot(klok)= (SAo*(PLV-Psa)/RAo)*1;  % places QAo value into timestep placeholder
+  Qs_plot(klok)=(Psa/Rs)*1; % places Qs value into timestep placeholder
   SMi_plot(klok)=SMi; % places SMi value into timestep placeholder
   SAo_plot(klok)=SAo; % places SAo value into timestep placeholder
 end
@@ -33,8 +33,8 @@ end
 figure(1)
 subplot(3,1,1), plot(t_plot,CLV_plot)
     title('Left Ventricle Compliance')
-    xlabel('Compliance (liters/mmHg)')
-    ylabel('time (minutes)')
+    xlabel('time (minutes)')
+    ylabel('Compliance (liters/mmHg)')
 subplot(3,1,2), plot(t_plot,PLV_plot,t_plot,Psa_plot)
     title('Pressure of Left Ventricle and Systemic Artery')
     xlabel('time (minutes)')
@@ -62,3 +62,4 @@ max = findpeaks(Psa_plot);
 min = findpeaks(-Psa_plot);
 BP_systolic = mean(max) ; 
 BP_diastolic = -mean(min) ;
+mean_pressure = mean(Psa_plot) ;
