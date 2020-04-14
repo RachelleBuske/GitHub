@@ -1,6 +1,9 @@
 %filename: set_SMi_SAo.m
-%script to find 
-%self-consistent valve states and pressures:
+%Overview: script to find self-consistent valve states and pressures:
+    % Found by trial and error:
+    % Starts with any state of the valves, and solves for the pressures. Then
+    % the valves are reset according to the pressures, the pressures solved for again. 
+    % This continues until the valve states stop changing.
 done=0;  %not done yet!
 while(~done)  %keep trying if not done (see below)
   SMi_noted=SMi;  %note the value of SMi

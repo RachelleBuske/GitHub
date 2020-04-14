@@ -1,16 +1,17 @@
 %filename: in_LV_sa.m  (initialization for LV_sa)
+% Overview: initialization program for simulating the left heart and the systemic arteries
 T =0.0125    %Duration of heartbeat (minutes)
 TS=0.0050    %Duration of systole   (minutes)
 tauS=0.0025  %CLV time constant during systole (minutes)
 tauD=0.0075  %CLV time constant during diastole (minutes)
-Rs=17.86     %Systemic resistance (mmHg/(liter/minute))
+Rs=17.86/2     %Systemic resistance (mmHg/(liter/minute)) 
 %Valve resistances here are not supposed to be realistic,
 %just small enough to be negligible:
-RMi=0.01     %mitral valve resistance (mmHg/(liter/minute))
-RAo=0.01     %aortic valve resistance (mmHg/(liter/minute))
+RMi=0.01    %mitral valve resistance (mmHg/(liter/minute)) [increase to model stenosis]
+RAo=0.01     %aortic valve resistance (mmHg/(liter/minute)) [increase to model stenosis]
 %The following value of Csa is approximate;
 %needs adjustment to make blood pressure 120/80:
-Csa=0.00175  %Systemic arterial compliance (liters/mmHg)
+Csa= 0.0011 %0.00175  %Systemic arterial compliance (liters/mmHg)
 CLVS=0.00003 %Min (systolic)  value of CLV (liters/mmHg)
 CLVD=0.0146  %Max (diastolic) value of CLV (liters/mmHg)
 Vsad=0.825   %Systemic arterial volume when Psa=0 (liters)
